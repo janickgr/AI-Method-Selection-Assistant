@@ -1,0 +1,46 @@
+/* Globale Stile */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Header-Stile */
+  header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+  }
+
+  .logo img {
+    float: right;
+    margin-left: auto;
+    width: 230px;
+    height: auto;
+  }
+  
+  header h1 {
+    margin-top: 150px;
+    text-align: center;
+    color: #242788;
+    
+  }
+
+  header h3 {
+    margin-top: 30px;
+    margin-bottom: 0;
+    text-align: left;
+    font-weight: bold;
+  }
+  
+  /* Hauptinhalt-Stile */
+  main {
+  }
+  
+  /* Footer-Stile */
+  footer {
+    padding: 10px;
+    text-align: center;
+  }
+  
+  
