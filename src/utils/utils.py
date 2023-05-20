@@ -16,3 +16,5 @@ class Utils:
     @staticmethod
     def add_elements_to_dict(dictionary, new_elements):
         dictionary.update(new_elements)
+
+        return dictionary

@@ -10,7 +10,7 @@ class PDF_report:
         pass
 
     def add_img_to_html(self, context_dict):
-        relative_path = 'assets/hhn-logo.png'
+        relative_path = 'src/report/assets/hhn-logo.png'
         hhn_logo = utils.Utils.make_absolute_path(relative_path)
         img_dict = {'hhn_logo': hhn_logo}
 
@@ -31,12 +31,12 @@ class PDF_report:
         output_text = template.render(context)
 
         # Export pdf file
-        config = pdfkit.configuration(wkhtmltopdf='wkhtmltopdf/bin/wkhtmltopdf.exe')
+        config = pdfkit.configuration(wkhtmltopdf='src/report/wkhtmltopdf/bin/wkhtmltopdf.exe')
         pdfkit.from_string(output_text, output_pdf, configuration=config, css=css_style, options={"enable-local-file-access": ""})
 
     def create_report(self, context_dict):
-        html_template = 'assets/pdf_report.html'
-        css_style = 'assets/style.css'
-        output_pdf = 'pdf_report.pdf'
+        html_template = 'src/report/assets/pdf_report.html'
+        css_style = 'src/report/assets/style.css'
+        output_pdf = 'src/report/pdf_report.pdf'
         
         self.export_to_pdf(html_template, css_style, output_pdf, context_dict)
