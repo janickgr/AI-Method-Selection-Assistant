@@ -18,7 +18,7 @@ def main():
         'item3': item3,
         'item4': item4
     }
-    
+
     # Create report 
     report.create_report(context_dict)
 
