@@ -1,6 +1,7 @@
 import jinja2
 import pdfkit
 from datetime import datetime
+from config import WKHTMLTOPDF_PATH
 
 from src.utils import utils
 
@@ -36,7 +37,7 @@ class PDFReport:
 
         # Export pdf file
         config = pdfkit.configuration(
-            wkhtmltopdf='/usr/local/bin/wkhtmltopdf')
+            wkhtmltopdf=WKHTMLTOPDF_PATH)
         pdfkit.from_string(output_text, output_pdf, configuration=config,
                            css=css_style, options={"enable-local-file-access": ""})
 
