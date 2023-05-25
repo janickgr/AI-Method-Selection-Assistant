@@ -1,10 +1,13 @@
 import jinja2
 import pdfkit
+import sys
+import os
+sibling_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+sys.path.append(sibling_path)
+
 from datetime import datetime
 from config import WKHTMLTOPDF_PATH
-
 from src.utils import utils
-
 
 class PDFReport:
     # Class to generate PDF-Report
@@ -37,7 +40,7 @@ class PDFReport:
 
         # Export pdf file
         config = pdfkit.configuration(
-            wkhtmltopdf=WKHTMLTOPDF_PATH)
+            wkhtmltopdf = WKHTMLTOPDF_PATH)
         pdfkit.from_string(output_text, output_pdf, configuration=config,
                            css=css_style, options={"enable-local-file-access": ""})
 

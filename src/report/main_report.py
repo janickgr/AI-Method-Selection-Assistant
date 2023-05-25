@@ -1,5 +1,4 @@
-from report.PDFReport import PDFReport
-
+from PDFReport import PDFReport
 
 def main_report():
     ########################################################################
