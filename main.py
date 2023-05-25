@@ -1,7 +1,7 @@
 import sys
 sys.path.append('src')
 
-from report.pdf_report import *
+from report.PDFReport import PDFReport
 
 def main():
     ########################################################################
@@ -9,7 +9,8 @@ def main():
     ########################################################################
     
     # Initialise new pdf_report object
-    report = PDF_report()
+    report = PDFReport()
+
 
     # Create new dictionary for input context to the report 
     item1 = "Johannes"
