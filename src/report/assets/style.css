@@ -38,6 +38,13 @@ body {
   main {
   }
   
+  .container {
+    width: 100%;
+  }
+  .element-header{
+    display: inline-block;
+    width: 50%;
+  }
   /* Footer-Stile */
   footer {
     padding: 10px;
