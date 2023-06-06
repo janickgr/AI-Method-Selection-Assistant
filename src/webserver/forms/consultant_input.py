@@ -4,6 +4,7 @@ from st_clickable_images import clickable_images
 from PIL import Image
 import time
 from streamlit_autorefresh import st_autorefresh
+from streamlit_extras.switch_page_button import switch_page
 
 
 # --------------------------------------------------------------------------------
@@ -29,6 +30,7 @@ def company_form():
                                                       'industry': industry,
                                                       'employees': employees,
                                                       'headquarters': headquarters}
+                switch_page("Ergebnisabfrage")
                 st.experimental_rerun()
                 return
 

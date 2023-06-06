@@ -1,4 +1,5 @@
 from streamlit_autorefresh import st_autorefresh
+from streamlit_extras.switch_page_button import switch_page
 from PIL import Image
 import streamlit as st
 from utils import utils
@@ -34,12 +35,14 @@ if not st.session_state['selected_profile']:
                 st.image(image_user, width=250)
                 if st.button('Start Assistant as a User', key='profil_user'):
                     st.session_state.selected_profile = 'user'
+                    switch_page("Dateneingabe")
                     st.experimental_rerun()
 
             with col2:
                 st.image(image_consultant, width=250)
                 if st.button('Start Assistant as a Consultant', key='profil_consultant'):
                     st.session_state.selected_profile = 'consultant'
+                    switch_page("Dateneingabe")
                     st.experimental_rerun()
 
 elif st.session_state['company_info'] and st.session_state['feature_input']:
