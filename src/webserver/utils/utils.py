@@ -26,6 +26,9 @@ def display_session_state():
 
     if 'feature_input_data' not in st.session_state:
         st.session_state['feature_input_data'] = {}
+        
+    if 'output_data' not in st.session_state:
+        st.session_state['feature_input_data'] = pd.DataFrame()
 
     if st.session_state['selected_profile'] != False:
         st.text('logged in as: {}'.format(

@@ -1,5 +1,6 @@
 import streamlit as st
 from streamlit_autorefresh import st_autorefresh
+from streamlit_extras.switch_page_button import switch_page
 
 import forms.user_input
 import forms.consultant_input
@@ -24,7 +25,9 @@ st.subheader('Eingegebene Daten:')
 with st.expander('Inspizieren Sie die eingegebenen Daten bezüglich des Unternehmens:'):
     df_company_data = pd.DataFrame(
         st.session_state['company_info_data'], index=['0'])
-    st.write(df_company_data)
+    
+    #st.text('Firmenname: {}'.format(df_company_data['']))
+    #st.write(df_company_data[''])
 
 
 with st.expander('Inspizieren Sie die eingegebenen Daten:'):
@@ -43,5 +46,10 @@ if st.button('Berechne KI-Methode', key='calculate'):
         st.success('Fertig')
 
     st.write('Ergebnis:')
+    
+    st.session_state.output_data = models.xgb_predict(input_data=final_data, xgb_model=xgb_model)
+    st.write(st.session_state.output_data)
+    
 
-    st.write(models.xgb_predict(input_data=final_data, xgb_model=xgb_model))
+if st.button('Exportmöglichkeiten', key='export_button'):
+    switch_page('Exportmöglichkeiten')
