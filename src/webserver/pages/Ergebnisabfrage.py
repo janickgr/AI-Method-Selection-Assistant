@@ -4,6 +4,8 @@ from streamlit_autorefresh import st_autorefresh
 import forms.user_input
 import forms.consultant_input
 from utils import utils
+from models import models
+import time
 
 import pandas as pd
 
@@ -33,5 +35,15 @@ with st.expander('Inspect your entered input data:'):
 
     edited_df = st.experimental_data_editor(df_input_data)
 
-if st.button('calculate methdod', key='schwanz'):
-    st.info('Pantello ist ein Hurensohn')
+if st.button('calculate methdod', key='calculate'):
+    input_data = st.session_state['feature_input_data']
+    input_data = utils.transform_dummy(input_data, input_data.columns)
+    final_data = utils.concat_dummy_user_input(input_data)
+    xgb_model = models.load_model_xgb()
+
+    with st.spinner('Verarbeitung und Kalkulation geeigneter KI-Methoden ...'):
+        time.sleep(2)
+
+    st.write('Ergebnis:')
+
+    st.write(models.xgb_predict(input_data=final_data, xgb_model=xgb_model))

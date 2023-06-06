@@ -5,6 +5,7 @@ from PIL import Image
 import time
 from streamlit_autorefresh import st_autorefresh
 from streamlit_extras.switch_page_button import switch_page
+import pandas as pd
 
 
 # --------------------------------------------------------------------------------
@@ -30,7 +31,6 @@ def company_form():
                                                       'industry': industry,
                                                       'employees': employees,
                                                       'headquarters': headquarters}
-                switch_page("Ergebnisabfrage")
                 st.experimental_rerun()
                 return
 
@@ -43,48 +43,53 @@ def data_form():
         with col2:
 
             # 1
-            data = st.radio('I\'s your data unstructured or structured ?',
-                            ('unstructured', 'structured'), key='value_data')
 
-            accuracy_claim = st.select_slider('What accuracy level you need?',
-                                              options=['Low', 'Medium', 'High', 'Very high'], label_visibility='visible', key='value_accuracy_claim')
-            dimensions_amount = st.radio('How many features does your data have?', (
-                'Medium', 'High', 'Low'), key='value_dimensions_amount')
+            data_format = st.radio('Welches Datenformat haben die Daten?', (
+                'Bild', 'Text', 'Ton', 'Video', 'Matrix', 'Keine'), key='value_data_format')
 
-            data_format = st.radio('In which format is your data?', (
-                'Matrix', 'Text', 'Video', 'Image', 'Audio', 'Other'), key='value_data_format')
-            data_amount = st.radio('How big is your data volume?', (
-                'Very high', 'Low', 'Medium', 'High', 'None'), key='value_data_amount')
-            data_quality = st.radio('How would you describe the quality of your data?', (
-                'Medium', 'High', 'Very high', 'Low', 'None'), key='value_data_quality')
+            data_quality = st.radio('Welche Datenqualität besitzen die Daten?', (
+                'Sehr Hoch', 'Hoch', 'Mittel', 'Gering', 'Keine'), key='value_data_quality')
 
-            data_type = st.radio('How would you describe the type of your data?', (
-                'Labeled', 'Mixed', 'Unlabeled', 'Feedback-Signal'), key='value_data_type')
+            data_type = st.radio('Welchen Datentyp besitzen die Daten?', (
+                'Gelabelt', 'Nicht gelabelt', 'Gemischt', 'Feedback-Signal'), key='value_data_type')
+
+            data_amount = st.radio('Wie groß ist die Datenmenge?', (
+                'Sehr Groß', 'Groß', 'Mittel', 'Klein', 'Keine'), key='value_data_amount')
+
+            type_goalsize = st.radio('Wie ist der Typ der Zielgröße?', (
+                'Numerisch', 'Kategorisch', 'Keine'), key='value_type_goalsize')
+
+            accuracy_claim = st.select_slider('Welcher Anspruch auf Genauigkeit besteht?',
+                                              options=['Gering', 'Normal', 'Hoch', 'Sehr Hoch'], label_visibility='visible', key='value_accuracy_claim')
+
+            dimensions_amount = st.radio('Welche Anzahl an Dimensionen gibt es? many features does your data have?', (
+                'Hoch', 'Mittel', 'Gering'), key='value_dimensions_amount')
+
             sequence_of_decisions = st.radio(
-                'sequence_of_decisions????', ('Yes', 'No'), key='value_sequence_of_decisions')
+                'Handelt es sich um eine Folge von Entscheidungen?', ('ja', 'nein'), key='value_sequence_of_decisions')
+
             label = st.radio('label???', ('1', '0'), key='value_label')
 
-            computing_power = st.radio('How would you describe the computing power which is available at your company?', (
-                'Medium', 'Low', 'High', 'Very high'), key='value_computing_power')
-            type_goalsize = st.radio(
-                'type_goalsize ???', ('Categorical', 'Numerical', 'None'), key='value_type_goalsize')
-            time_availability = st.radio('How urgent do you need the model?', (
-                'Medium', 'High', 'Low', 'Very high'), key='value_time_availability')
+            computing_power = st.radio('Wie würden sie die vorhanden Rechenkapazität beschreiben?', (
+                'Gering', 'Mittel', 'Hoch', 'Sehr Hoch'), key='value_computing_power')
+
+            time_availability = st.radio('Wie dringend benötigen Sie das Modell?', (
+                'Gering', 'Normal', 'Hoch', 'Sehr Hoch'), key='value_time_availability')
 
         if st.button('Submit data', key='button_data'):
             st.balloons()
             st.session_state.feature_input = True
-            st.session_state.feature_input_data = {'data': data,
-                                                   'accuracy_claim': accuracy_claim,
-                                                   'dimensions_amount': dimensions_amount,
-                                                   'data_format': data_format,
-                                                   'data_amount': data_amount,
-                                                   'data_quality': data_quality,
-                                                   'data_type': data_type,
-                                                   'sequence_of_decisions': sequence_of_decisions,
-                                                   'label': label,
-                                                   'computing_power': computing_power,
-                                                   'type_goalsize': type_goalsize,
-                                                   'time_availability': time_availability,
-                                                   }
+            st.session_state.feature_input_data = pd.DataFrame(data={'Datenformat': data_format,
+                                                                     'Anspruch auf Genauigkeit': accuracy_claim,
+                                                                     'Anzahl an Dimensionen (Features)': dimensions_amount,
+                                                                     'Datenmenge': data_amount,
+                                                                     'Datenqualität': data_quality,
+                                                                     'Datentyp': data_type,
+                                                                     'Folge von Entscheidungen': sequence_of_decisions,
+                                                                     'Rechenkapazität': computing_power,
+                                                                     'Typ der Zielgröße': type_goalsize,
+                                                                     'Verfügbarkeit von Zeit': time_availability,
+                                                                     }, index=[0])
+
+            switch_page('Ergebnisabfrage')
             return

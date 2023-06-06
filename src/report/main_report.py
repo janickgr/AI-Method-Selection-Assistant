@@ -1,5 +1,6 @@
 from PDFReport import PDFReport
 
+
 def main_report():
     ########################################################################
     ############################## PDF-REPORT ##############################
@@ -9,8 +10,8 @@ def main_report():
     report = PDFReport()
 
     # Create new dictionary for input context to the report
-    item1 = "Johannes na dann ..."
-    item2 = "Yannik"
+    item1 = "Johannes im Browser na dann ..."
+    item2 = "Yannick"
     item3 = "Tobi aka der Coder"
     item4 = "Janick"
     context_dict = {
