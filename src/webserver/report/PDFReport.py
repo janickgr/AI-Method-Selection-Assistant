@@ -1,4 +1,4 @@
-from config import WKHTMLTOPDF_PATH
+from report.config import WKHTMLTOPDF_PATH
 from datetime import datetime
 import jinja2
 import pdfkit
@@ -13,7 +13,7 @@ class PDFReport:
         pass
 
     def add_img_to_html(self, context_dict):
-        relative_path = 'src/report/assets/IWI-logo.png'
+        relative_path = 'src/webserver/report/assets/IWI-logo.png'
         iwi_logo = self.make_absolute_path(relative_path)
         img_dict = {'iwi_logo': iwi_logo}
 
@@ -40,9 +40,9 @@ class PDFReport:
                            css=css_style, options={"enable-local-file-access": ""})
 
     def create_report(self, context_dict):
-        html_template = 'src/report/assets/pdf_report.html'
-        css_style = 'src/report/assets/style.css'
-        output_pdf = 'src/report/pdf_report.pdf'
+        html_template = 'src/webserver/report/assets/pdf_report.html'
+        css_style = 'src/webserver/report/assets/style.css'
+        output_pdf = 'src/webserver/report/assets/pdf_report.pdf'
 
         self.export_to_pdf(html_template, css_style, output_pdf, context_dict)
 

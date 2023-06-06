@@ -11,4 +11,4 @@ def load_model_xgb():
 
 def xgb_predict(input_data, xgb_model):
     xgb_model_prediction = xgb_model.predict_proba(input_data)
-    return xgb_model.classes_[xgb_model_prediction.argsort()[0][-2:]]
+    return xgb_model.classes_[xgb_model_prediction.argsort()]

@@ -1,0 +1,54 @@
+.logo img {
+  float: right;
+  width: 180px;
+  height: auto;
+}
+
+/* Hauptinhalt-Stile */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+header h3 {
+  margin-top: 50px;
+}
+
+.ergebnisse {
+  padding: 10px
+}
+
+/* Footer-Stile */
+footer {
+  padding: 10px;
+  text-align: center;
+}
+
+.name {
+  margin-top: 150px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.address {
+  font-size: 16px;
+}
+
+.contact {
+  font-size: 16px;
+}
+
+.placeholder {
+  margin-top: 150px;
+}
+.page-break {
+  page-break-after: always;
+}

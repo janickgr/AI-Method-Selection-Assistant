@@ -30,6 +30,9 @@ def display_session_state():
     if 'output_data' not in st.session_state:
         st.session_state['output_data'] = {}
 
+    if 'tco_clv_data' not in st.session_state:
+        st.session_state['tco_clv_data'] = {'tco': None, 'clv': None}
+
     if st.session_state['selected_profile'] != False:
         st.text('logged in as: {}'.format(
             st.session_state['selected_profile']))

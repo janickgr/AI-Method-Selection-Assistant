@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>AI Method Selection Assistant</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="{{iwi_logo}}">
+        </div>
+        <div class="name">{{name}}</div>
+        <div class="address">
+            {{street}} <br>
+            {{loc}}
+        </div>
+        <div class="contact">
+            {{phone}}<br>
+            {{mail}}
+        </div>
+        <h3> Ergebnisse des KI-Beratungsassistenten für {{name}} vom {{today}} </h3>
+    </header>
+
+    <div class="ergebnisse">
+
+        Sehr geehrter Vertreter des {{name}}, <br> <br>
+        vielen Dank für Ihre Zusammenarbeit im Ramen der Beratung zur Auswahl der KI-Modelle. Anbei erhalten Sie die
+        Ergebnisse unseres Assistenten. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+        tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo
+        dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem
+        ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore
+        magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
+        gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.<br> <br>
+        <div class="page-break"></div>
+        <header>
+            <div class="logo">
+                <img src="{{iwi_logo}}">
+            </div>
+            <div class="placeholder"></div>
+            <h3> Ergebnisse des KI-Beratungsassistenten für {{name}} vom {{today}} </h3>
+        </header>
+
+        <div class="ergebnisse">
+            <b>Ergebnisse der Modellberechnung:</b><br> <br>    
+            {{output_data}} <br><br>
+        </div>
+        <div class="page-break"></div>
+        <header>
+            <div class="logo">
+                <img src="{{iwi_logo}}">
+            </div>
+            <div class="placeholder"></div>
+            <h3> Ergebnisse des KI-Beratungsassistenten für {{name}} vom {{today}} </h3>
+        </header>
+        <div class="ergebnisse">
+            <b>Wirtschaftlichkeitsbetrachtung:</b><br> <br>
+            TCO (Total Cost of Ownership): {{tco}} (in EUR) <br>
+            CLV (Customer Lifetime Value): {{clv}} (in EUR) <br>
+        </div>
+    </div>
+
+    <footer>
+        <!-- Inhalte des Footers (Kontaktinformationen, Links, etc.) -->
+    </footer>
+</body>
+
+</html>

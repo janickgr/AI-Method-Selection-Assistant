@@ -1,28 +1,30 @@
-from PDFReport import PDFReport
+from report.PDFReport import PDFReport
 
 
-def main_report():
+
+def main_report(name, street, loc, today, phone, mail, tco, clv, output_data):
     ########################################################################
     ############################## PDF-REPORT ##############################
     ########################################################################
 
     # Initialise new pdf_report object
-    report = PDFReport()
+    r1 = PDFReport()
 
     # Create new dictionary for input context to the report
-    item1 = "Johannes im Browser na dann ..."
-    item2 = "Yannick"
-    item3 = "Tobi aka der Coder"
-    item4 = "Janick"
     context_dict = {
-        'item1': item1,
-        'item2': item2,
-        'item3': item3,
-        'item4': item4
+        'name': name,
+        'street': street,
+        'loc': loc,
+        'today': today,
+        'phone': phone,
+        'mail': mail,
+        'tco': tco,
+        'clv': clv,
+        'output_data': output_data
     }
 
     # Create report
-    report.create_report(context_dict)
+    r1.create_report(context_dict)
 
 
 if __name__ == "__main__":

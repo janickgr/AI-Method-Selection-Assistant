@@ -70,7 +70,7 @@ def data_form():
             accuracy_claim = st.select_slider('Welcher Anspruch auf Genauigkeit besteht?',
                                               options=['Gering', 'Normal', 'Hoch', 'Sehr Hoch'], label_visibility='visible', key='value_accuracy_claim')
 
-            dimensions_amount = st.radio('Welche Anzahl an Dimensionen gibt es? many features does your data have?', (
+            dimensions_amount = st.radio('Welche Anzahl an Dimensionen gibt es?', (
                 'Hoch', 'Mittel', 'Gering'), key='value_dimensions_amount')
 
             sequence_of_decisions = st.radio(

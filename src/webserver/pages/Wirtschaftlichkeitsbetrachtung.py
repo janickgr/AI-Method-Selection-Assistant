@@ -36,6 +36,7 @@ with col1:
 def calculate(initial_investment, annual_operation_costs, annual_revenue, customer_lifetime):
     tco = float(initial_investment) + (float(annual_operation_costs) * float(customer_lifetime))
     clv = (float(annual_revenue) * float(customer_lifetime)) - tco
+    st.session_state.tco_clv_data = {'tco': tco, 'clv': clv}
     return tco, clv
 
 if st.button('Berechnen'):

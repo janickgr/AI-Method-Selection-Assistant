@@ -64,6 +64,7 @@ with st.container():
     sequence_of_decisions = df_input_data.iloc[0][6]
     computing_power = df_input_data.iloc[0][7]
     type_goalsize = df_input_data.iloc[0][8]
+    time_availability = df_input_data.iloc[0][9]
 
     col1, col2, c3 = st.columns(3, gap='small')
 
@@ -90,7 +91,8 @@ with st.container():
     col2.text(data_type)
     col2.text(sequence_of_decisions)
     col2.text(computing_power)
-    col2.text(type_goalsize)    
+    col2.text(type_goalsize)  
+    col2.text(time_availability)  
     
 st.write('----')    
     
@@ -109,15 +111,6 @@ if st.button('Berechne KI-Methode', key='calculate'):
     
     st.session_state.output_data = models.xgb_predict(input_data=final_data, xgb_model=xgb_model)
     st.write(st.session_state.output_data)
-    
 
-col1, col2, c3 = st.columns(3, gap='small')
-
-
-with col1: 
-    if st.button('Exportmöglichkeiten', key='export_button'):
-        switch_page('Exportmöglichkeiten')
-        
-with col2:
-    if st.button('Wirtschaftlichkeitsbetrachtung durchführen', key='tco_button'):
-        switch_page('Wirtschaftlichkeitsbetrachtung')
+if st.button('Wirtschaftlichkeitsbetrachtung durchführen', key='tco_button'):
+    switch_page('Wirtschaftlichkeitsbetrachtung')
