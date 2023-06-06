@@ -18,9 +18,16 @@ output_container = st.empty()
 
 def display_input():
     if st.session_state['selected_profile'] == 'user':
-        if st.session_state['company_info']:
+        if not st.session_state['company_info']:
             with output_container:
-                forms.user_input.display_user_form()
+                forms.consultant_input.company_form()
+
+        if not st.session_state['feature_input'] and st.session_state['company_info'] == True:
+            with output_container:
+                forms.consultant_input.data_form()
+                
+                
+                
 
     elif st.session_state['selected_profile'] == 'consultant':
         if not st.session_state['company_info']:

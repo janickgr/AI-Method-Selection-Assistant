@@ -33,22 +33,32 @@ with col1:
     customer_lifetime = st.text_input(
         'Nutzungsdauer der Kunden (in Jahren):', value='3', key='customer_lifetime')
 
+
 def calculate(initial_investment, annual_operation_costs, annual_revenue, customer_lifetime):
-    tco = float(initial_investment) + (float(annual_operation_costs) * float(customer_lifetime))
+    tco = float(initial_investment) + \
+        (float(annual_operation_costs) * float(customer_lifetime))
     clv = (float(annual_revenue) * float(customer_lifetime)) - tco
     st.session_state.tco_clv_data = {'tco': tco, 'clv': clv}
     return tco, clv
 
-if st.button('Berechnen'):
-    tco, clv = calculate(initial_investment, annual_operation_costs, annual_revenue, customer_lifetime)
-    st.info(f"TCO (Total Cost of Ownership): {tco}")
-    st.info(f"CLV (Customer Lifetime Value): {clv}")
 
+if st.button('Berechnen'):
+    with st.spinner('Wirtschaftlichkeitsbetrachtung berechnen'):
+        tco, clv = calculate(
+            initial_investment, annual_operation_costs, annual_revenue, customer_lifetime)
+
+        time.sleep(1)
+
+        col1, col2, c3 = st.columns(3, gap='small')
+        col1.subheader('TCO (Total Cost of Ownership):')
+        col1.subheader('CLV (Customer Lifetime Value):')
+
+        col2.subheader(str(tco) + ' €')
+        col2.subheader(str(clv) + ' €')
 
 if st.button('Exportmöglichkeiten', key='export_button'):
-        switch_page('Exportmöglichkeiten')
-        
-        
+    switch_page('Exportmöglichkeiten')
+
 if st.button('Neu Starten'):
     st.session_state.selected_profile = False
     st.session_state.company_info = False
