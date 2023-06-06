@@ -1,5 +1,6 @@
 import streamlit as st
 from streamlit_autorefresh import st_autorefresh
+from streamlit_extras.switch_page_button import switch_page
 
 import forms.user_input
 import forms.consultant_input
@@ -43,3 +44,15 @@ if st.button('Berechnen'):
     st.info(f"CLV (Customer Lifetime Value): {clv}")
 
 
+if st.button('Exportmöglichkeiten', key='export_button'):
+        switch_page('Exportmöglichkeiten')
+        
+        
+if st.button('Neu Starten'):
+    st.session_state.selected_profile = False
+    st.session_state.company_info = False
+    st.session_state.feature_input = False
+    st.session_state.company_info_data = False
+    st.session_state.feature_input_data = False
+    st.session_state.output_data = False
+    switch_page('AI_Method_Selection_Assistant')

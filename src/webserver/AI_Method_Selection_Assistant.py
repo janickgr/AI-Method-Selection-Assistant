@@ -7,7 +7,8 @@ from utils import utils
 
 # --------------------------------------------------------------------------------
 
-st.set_page_config(layout='wide')
+st.set_page_config(initial_sidebar_state="collapsed", layout='wide')
+
 autorefresh_interval = 2000
 
 # display session state
@@ -54,8 +55,11 @@ elif st.session_state['company_info'] and st.session_state['feature_input']:
 
 st.write('----')
 
-if st.button('reset'):
+if st.button('Neu Starten'):
     st.session_state.selected_profile = False
     st.session_state.company_info = False
     st.session_state.feature_input = False
+    st.session_state.company_info_data = False
+    st.session_state.feature_input_data = False
+    st.session_state.output_data = False
     st.experimental_rerun()

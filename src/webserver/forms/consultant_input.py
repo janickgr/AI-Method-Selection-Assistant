@@ -27,6 +27,10 @@ def company_form():
                 'In welcher Branche ist das Unternehmen tätig?', value='Beratung', key='company_name1')
             employees = st.text_input(
                 'Wie viele Mitarbeiter hat das Unternehmen?', value=25, key='company_name2')
+            
+            phone = st.text_input('Welche Telefonnummer ist für Rückrufe relevant?', value='01512123456', key='phone')
+            
+            user_mail_input = st.text_input('Welche E-Mail Adresse ist aktuell?', value='thomastest@beratungshausit.de', key='mail_input')
 
             if st.button('Organisationsdaten übermitteln', key='button_orga_data'):
                 st.session_state.company_info = True
@@ -34,7 +38,9 @@ def company_form():
                                                       'company_street': company_street,
                                                       'company_loc': company_loc,
                                                       'industry': industry,
-                                                      'employees': employees, }
+                                                      'employees': employees,
+                                                      'phone': phone,
+                                                      'mail':user_mail_input}
                 st.experimental_rerun()
                 return
 
@@ -45,8 +51,6 @@ def data_form():
 
         col2, col3 = st.columns(2)
         with col2:
-
-            # 1
 
             data_format = st.radio('Welches Datenformat haben die Daten?', (
                 'Bild', 'Text', 'Ton', 'Video', 'Matrix', 'Keine'), key='value_data_format')
@@ -81,17 +85,16 @@ def data_form():
         if st.button('Daten übertragen', key='button_data'):
             st.balloons()
             st.session_state.feature_input = True
-            st.session_state.feature_input_data = pd.DataFrame(data={'Datenformat': data_format,
-                                                                     'Anspruch auf Genauigkeit': accuracy_claim,
-                                                                     'Anzahl an Dimensionen (Features)': dimensions_amount,
-                                                                     'Datenmenge': data_amount,
-                                                                     'Datenqualität': data_quality,
-                                                                     'Datentyp': data_type,
-                                                                     'Folge von Entscheidungen': sequence_of_decisions,
-                                                                     'Rechenkapazität': computing_power,
-                                                                     'Typ der Zielgröße': type_goalsize,
-                                                                     'Verfügbarkeit von Zeit': time_availability,
-                                                                     }, index=[0])
+            st.session_state.feature_input_data = {'Datenformat': data_format,
+                                                    'Anspruch auf Genauigkeit': accuracy_claim,
+                                                    'Anzahl an Dimensionen (Features)': dimensions_amount,
+                                                    'Datenmenge': data_amount,
+                                                    'Datenqualität': data_quality,
+                                                    'Datentyp': data_type,
+                                                    'Folge von Entscheidungen': sequence_of_decisions,
+                                                    'Rechenkapazität': computing_power,
+                                                    'Typ der Zielgröße': type_goalsize,
+                                                    'Verfügbarkeit von Zeit': time_availability}
 
             switch_page('Ergebnisabfrage')
             return
