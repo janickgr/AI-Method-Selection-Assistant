@@ -21,10 +21,10 @@ def display_session_state():
         st.session_state['feature_input'] = False
 
     if 'company_info_data' not in st.session_state:
-        st.session_state['company_info_data'] = []
+        st.session_state['company_info_data'] = {}
 
     if 'feature_input_data' not in st.session_state:
-        st.session_state['feature_input_data'] = []
+        st.session_state['feature_input_data'] = {}
 
     if st.session_state['selected_profile'] != False:
         st.text('logged in as: {}'.format(

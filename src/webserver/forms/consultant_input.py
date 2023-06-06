@@ -39,17 +39,50 @@ def data_form():
 
         col2, col3 = st.columns(2)
         with col2:
-            data_type = st.text_input('Welche Daten:', key='company_name123')
-            data_amount = st.text_input(
-                'Menge an Daten', key='company_name3211231')
-            data_task = st.text_input('Aufgabe?', key='company_name1231232')
-            data_test = st.text_input('Na dann...:', key='company_name2131233')
+
+            # 1
+            data = st.radio('I\'s your data unstructured or structured ?',
+                            ('unstructured', 'structured'), key='value_data')
+
+            accuracy_claim = st.select_slider('What accuracy level you need?',
+                                              options=['Low', 'Medium', 'High', 'Very high'], label_visibility='visible', key='value_accuracy_claim')
+            dimensions_amount = st.radio('How many features does your data have?', (
+                'Medium', 'High', 'Low'), key='value_dimensions_amount')
+
+            data_format = st.radio('In which format is your data?', (
+                'Matrix', 'Text', 'Video', 'Image', 'Audio', 'Other'), key='value_data_format')
+            data_amount = st.radio('How big is your data volume?', (
+                'Very high', 'Low', 'Medium', 'High', 'None'), key='value_data_amount')
+            data_quality = st.radio('How would you describe the quality of your data?', (
+                'Medium', 'High', 'Very high', 'Low', 'None'), key='value_data_quality')
+
+            data_type = st.radio('How would you describe the type of your data?', (
+                'Labeled', 'Mixed', 'Unlabeled', 'Feedback-Signal'), key='value_data_type')
+            sequence_of_decisions = st.radio(
+                'sequence_of_decisions????', ('Yes', 'No'), key='value_sequence_of_decisions')
+            label = st.radio('label???', ('1', '0'), key='value_label')
+
+            computing_power = st.radio('How would you describe the computing power which is available at your company?', (
+                'Medium', 'Low', 'High', 'Very high'), key='value_computing_power')
+            type_goalsize = st.radio(
+                'type_goalsize ???', ('Categorical', 'Numerical', 'None'), key='value_type_goalsize')
+            time_availability = st.radio('How urgent do you need the model?', (
+                'Medium', 'High', 'Low', 'Very high'), key='value_time_availability')
 
         if st.button('Submit data', key='button_data'):
             st.balloons()
             st.session_state.feature_input = True
-            st.session_state.feature_input_data = {'data_type': data_type,
+            st.session_state.feature_input_data = {'data': data,
+                                                   'accuracy_claim': accuracy_claim,
+                                                   'dimensions_amount': dimensions_amount,
+                                                   'data_format': data_format,
                                                    'data_amount': data_amount,
-                                                   'data_task': data_task,
-                                                   'data_test': data_test}
+                                                   'data_quality': data_quality,
+                                                   'data_type': data_type,
+                                                   'sequence_of_decisions': sequence_of_decisions,
+                                                   'label': label,
+                                                   'computing_power': computing_power,
+                                                   'type_goalsize': type_goalsize,
+                                                   'time_availability': time_availability,
+                                                   }
             return
