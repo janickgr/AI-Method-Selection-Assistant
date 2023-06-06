@@ -26,7 +26,7 @@ with st.expander('Inspizieren Sie die eingegebenen Daten bezüglich des Unterneh
     df_company_data = pd.DataFrame(
         st.session_state['company_info_data'], index=['0'])
     
-    #st.text('Firmenname: {}'.format(df_company_data['']))
+    st.text('Firmenname: {}'.format(df_company_data['']))
     #st.write(df_company_data[''])
 
 
