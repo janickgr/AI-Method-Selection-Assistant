@@ -12,32 +12,36 @@ import pandas as pd
 
 def company_form():
     with st.container():
-        st.subheader('Consultant Input Organisation Forms')
+        st.subheader('Fragenkatalog')
 
         col1, col4 = st.columns(2)
         with col1:
             company_name = st.text_input(
-                'company name:', value='puma', key='company_name')
-            industry = st.text_input(
-                'industry:', value='shoes', key='company_name1')
-            employees = st.text_input(
-                'employees:', value=5, key='company_name2')
-            headquarters = st.text_input('headquarters:', value='heilbronn',
-                                         key='company_name3')
+                'Wie lautet der Name der Firma?', value='Beratungshaus Heilbronn IT', key='company_name')
+            company_street = st.text_input(
+                'Wie lautet der Straßenname und die Hausnummer?', value='Bildungscampus 1', key='company_street')
+            company_loc = st.text_input(
+                'Wie lautet der Ort und die Postleitzahl?', value='74072 Heilbronn', key='company_zip')
 
-            if st.button('Submit organisation data', key='button_orga_data'):
+            industry = st.text_input(
+                'In welcher Branche ist das Unternehmen tätig?', value='Beratung', key='company_name1')
+            employees = st.text_input(
+                'Wie viele Mitarbeiter hat das Unternehmen?', value=25, key='company_name2')
+
+            if st.button('Organisationsdaten übermitteln', key='button_orga_data'):
                 st.session_state.company_info = True
                 st.session_state.company_info_data = {'company_name': company_name,
+                                                      'company_street': company_street,
+                                                      'company_loc': company_loc,
                                                       'industry': industry,
-                                                      'employees': employees,
-                                                      'headquarters': headquarters}
+                                                      'employees': employees, }
                 st.experimental_rerun()
                 return
 
 
 def data_form():
     with st.container():
-        st.subheader('Consultant Input Data Forms')
+        st.subheader('Fragenkatalog')
 
         col2, col3 = st.columns(2)
         with col2:
@@ -68,15 +72,13 @@ def data_form():
             sequence_of_decisions = st.radio(
                 'Handelt es sich um eine Folge von Entscheidungen?', ('ja', 'nein'), key='value_sequence_of_decisions')
 
-            label = st.radio('label???', ('1', '0'), key='value_label')
-
             computing_power = st.radio('Wie würden sie die vorhanden Rechenkapazität beschreiben?', (
                 'Gering', 'Mittel', 'Hoch', 'Sehr Hoch'), key='value_computing_power')
 
             time_availability = st.radio('Wie dringend benötigen Sie das Modell?', (
                 'Gering', 'Normal', 'Hoch', 'Sehr Hoch'), key='value_time_availability')
 
-        if st.button('Submit data', key='button_data'):
+        if st.button('Daten übertragen', key='button_data'):
             st.balloons()
             st.session_state.feature_input = True
             st.session_state.feature_input_data = pd.DataFrame(data={'Datenformat': data_format,

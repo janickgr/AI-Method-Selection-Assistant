@@ -22,7 +22,7 @@ utils.display_session_state()
 # --------------------------------------------------------------------------------
 
 st.subheader(
-    'Please select the user type for which you want to perform the consultation within the prototype:')
+    'Bitte wählen Sie den Nutzertyp aus, für den Sie die Abfrage innerhalb des Prototyps durchführen möchten:')
 
 output_container = st.empty()
 

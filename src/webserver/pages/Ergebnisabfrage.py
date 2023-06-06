@@ -17,25 +17,22 @@ utils.display_session_state()
 
 # --------------------------------------------------------------------------------
 
-st.header('Results')
+st.header('Ergebnisabfrage')
 
-st.subheader('Company data input:')
+st.subheader('Eingegebene Daten:')
 
-with st.expander('Inspect your entered company data input:'):
+with st.expander('Inspizieren Sie die eingegebenen Daten bezüglich des Unternehmens:'):
     df_company_data = pd.DataFrame(
         st.session_state['company_info_data'], index=['0'])
+    st.write(df_company_data)
 
-    edited_df = st.experimental_data_editor(df_company_data)
 
-st.subheader('Data input:')
-
-with st.expander('Inspect your entered input data:'):
+with st.expander('Inspizieren Sie die eingegebenen Daten:'):
     df_input_data = pd.DataFrame(
         st.session_state['feature_input_data'], index=['0'])
+    st.write(df_input_data)
 
-    edited_df = st.experimental_data_editor(df_input_data)
-
-if st.button('calculate methdod', key='calculate'):
+if st.button('Berechne KI-Methode', key='calculate'):
     input_data = st.session_state['feature_input_data']
     input_data = utils.transform_dummy(input_data, input_data.columns)
     final_data = utils.concat_dummy_user_input(input_data)
@@ -43,6 +40,7 @@ if st.button('calculate methdod', key='calculate'):
 
     with st.spinner('Verarbeitung und Kalkulation geeigneter KI-Methoden ...'):
         time.sleep(2)
+        st.success('Fertig')
 
     st.write('Ergebnis:')
 
