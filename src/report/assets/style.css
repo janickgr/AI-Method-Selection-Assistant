@@ -8,15 +8,9 @@ body {
   /* Header-Stile */
   header {
     display: flex;
+    align-items: center;
     justify-content: space-between;
     padding: 10px;
-  }
-
-  .logo img {
-    float: right;
-    margin-left: auto;
-    width: 230px;
-    height: auto;
   }
   
   header h1 {
@@ -27,10 +21,17 @@ body {
   }
 
   header h3 {
-    margin-top: 30px;
+    margin-top: 40px;
     margin-bottom: 0;
     text-align: left;
     font-weight: bold;
+    flex-grow: 1;
+  }
+
+  .logo img {
+    float: right;
+    width: 180px;
+    height: auto;
   }
   
   /* Hauptinhalt-Stile */

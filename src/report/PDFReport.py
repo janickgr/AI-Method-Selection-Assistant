@@ -13,14 +13,12 @@ class PDFReport:
     # Class to generate PDF-Report
 
     def __init__(self):
-        # TODO logo
-        # TODO text
         pass
 
     def add_img_to_html(self, context_dict):
-        relative_path = 'src/report/assets/hhn-logo.png'
-        hhn_logo = utils.Utils.make_absolute_path(relative_path)
-        img_dict = {'hhn_logo': hhn_logo}
+        relative_path = 'src/report/assets/IWI-logo.png'
+        iwi_logo = utils.Utils.make_absolute_path(relative_path)
+        img_dict = {'iwi_logo': iwi_logo}
 
         context_dict = utils.Utils.add_elements_to_dict(context_dict, img_dict)
 
