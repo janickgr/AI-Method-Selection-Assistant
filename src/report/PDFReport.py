@@ -1,26 +1,23 @@
+from config import WKHTMLTOPDF_PATH
+from datetime import datetime
 import jinja2
 import pdfkit
 import sys
 import os
-sibling_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
-sys.path.append(sibling_path)
 
-from datetime import datetime
-from config import WKHTMLTOPDF_PATH
-from src.utils import utils
 
 class PDFReport:
-    # Class to generate PDF-Report
+    # Class to generate PDF-Report moin
 
     def __init__(self):
         pass
 
     def add_img_to_html(self, context_dict):
         relative_path = 'src/report/assets/IWI-logo.png'
-        iwi_logo = utils.Utils.make_absolute_path(relative_path)
+        iwi_logo = self.make_absolute_path(relative_path)
         img_dict = {'iwi_logo': iwi_logo}
 
-        context_dict = utils.Utils.add_elements_to_dict(context_dict, img_dict)
+        context_dict = self.add_elements_to_dict(context_dict, img_dict)
 
         return context_dict
 
@@ -38,7 +35,7 @@ class PDFReport:
 
         # Export pdf file
         config = pdfkit.configuration(
-            wkhtmltopdf = WKHTMLTOPDF_PATH)
+            wkhtmltopdf=WKHTMLTOPDF_PATH)
         pdfkit.from_string(output_text, output_pdf, configuration=config,
                            css=css_style, options={"enable-local-file-access": ""})
 
@@ -48,3 +45,18 @@ class PDFReport:
         output_pdf = 'src/report/pdf_report.pdf'
 
         self.export_to_pdf(html_template, css_style, output_pdf, context_dict)
+
+    def make_absolute_path(self, relative_path):
+        # Normiere die Pfade, um sicherzustellen, dass sie die richtige Syntax haben
+        relative_path = os.path.normpath(relative_path)
+        base_path = os.path.abspath(os.getcwd())
+
+        # Verbinde den relativen Pfad mit dem Basispfad
+        absolute_path = os.path.join(base_path, relative_path)
+
+        return absolute_path
+
+    def add_elements_to_dict(self, dictionary, new_elements):
+        dictionary.update(new_elements)
+
+        return dictionary
