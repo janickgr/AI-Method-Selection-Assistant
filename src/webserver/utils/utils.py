@@ -113,3 +113,16 @@ def concat_dummy_user_input(input_data):
                 df_final[col] = input_data[col]
 
     return df_final
+
+
+def get_clean_methods_names(list) -> list:
+
+    list_methods_names = []
+
+    for entry in list:
+        entry = entry.replace("[", "").replace("]", "").replace("'", "")
+        entry_list = entry.split(',') 
+        list_methods_names.append('{} ({})'.format(entry_list[1],entry_list[3].lstrip(' ')))
+
+    return list_methods_names
+

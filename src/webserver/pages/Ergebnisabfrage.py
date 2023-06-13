@@ -4,11 +4,15 @@ from streamlit_extras.switch_page_button import switch_page
 
 import forms.user_input
 import forms.consultant_input
+import numpy as np
 from utils import utils
-from models import models
+from results.result_class import Result
 import time
-
+import lightgbm as lgb
+import matplotlib.pyplot as plt
 import pandas as pd
+import plotly.tools
+import seaborn as sns
 
 
 # --------------------------------------------------------------------------------
@@ -96,21 +100,67 @@ with st.container():
     
 st.write('----')    
     
+count_methods_output = st.number_input('Anzahl der ausgegebenen KI-Methoden', value=5, key='amount_methods_output')
 
 if st.button('Berechne KI-Methode', key='calculate'):
     input_data = pd.DataFrame(st.session_state['feature_input_data'], index=['0'])
     input_data = utils.transform_dummy(input_data, input_data.columns)
     final_data = utils.concat_dummy_user_input(input_data)
-    xgb_model = models.load_model_xgb()
+
+    result = Result(final_data, count_methods_output)
+    result.create_result_df()
+    result.create_result_plot()
 
     with st.spinner('Verarbeitung und Kalkulation geeigneter KI-Methoden ...'):
         time.sleep(2)
         st.success('Fertig')
 
-    st.write('Ergebnis:')
+        st.session_state.output_data = result.output_df
+        
+        st.header('Ergebnisse:')
+        
+        st.write(result.plot_output_df)            
+        
+        
+        col1, col2, c3 = st.columns(3, gap='small')
+
+        col2.subheader('Diagramm')
+
+        with st.expander('Weitere Informationen zur Berechnung der Modelle...'):
+            st.text('Lorem Ipsum')
+
+
+        counter = 0
+
+        st.write('----')
+
+        for entry in reversed(st.session_state.output_data):
+
+            #TODO utils funktion
+            entry = entry.replace("[", "").replace("]", "").replace("'", "")
+
+            entry_list = entry.split(',')
+
+            st.subheader('{}. Platz: \t {}'.format(counter + 1, entry_list[1]))
+
+            col1, col2, c3 = st.columns(3, gap='small')
     
-    st.session_state.output_data = models.xgb_predict(input_data=final_data, xgb_model=xgb_model)
-    st.write(st.session_state.output_data)
+            col1.text('Verfahren:')
+            col1.text('Lerntyp: ')
+            col1.text('Daten:')
+
+
+            col2.write(entry_list[2])
+            col2.write(entry_list[3])
+            col2.write(entry_list[0])
+
+            with st.expander('Weitere Informationen zum Verfahren: {}'.format(entry_list[1])): 
+                st.write('Text Text Text')
+
+            st.write('----')
+
+            counter += 1
+    
 
 if st.button('Wirtschaftlichkeitsbetrachtung durchführen', key='tco_button'):
     switch_page('Wirtschaftlichkeitsbetrachtung')
