@@ -104,8 +104,10 @@ count_methods_output = st.number_input('Anzahl der ausgegebenen KI-Methoden', va
 
 if st.button('Berechne KI-Methode', key='calculate'):
     input_data = pd.DataFrame(st.session_state['feature_input_data'], index=['0'])
+    st.write(input_data)
     input_data = utils.transform_dummy(input_data, input_data.columns)
     final_data = utils.concat_dummy_user_input(input_data)
+    st.write(final_data)
 
     result = Result(final_data, count_methods_output)
     result.create_result_df()
@@ -119,12 +121,26 @@ if st.button('Berechne KI-Methode', key='calculate'):
         
         st.header('Ergebnisse:')
         
-        st.write(result.plot_output_df)            
-        
-        
         col1, col2, c3 = st.columns(3, gap='small')
 
-        col2.subheader('Diagramm')
+        col2.subheader('Übersicht')
+
+        # Verwenden Sie Seaborn, um den Plot zu erstellen
+
+        # Plot im Streamlit anzeigen
+        fig, ax = plt.subplots(figsize=(5, 2))
+        ax = sns.barplot(data=result.plot_output_df, x=result.plot_output_df["score"], y=result.plot_output_df["name"])
+        ax.set_xlabel(' ')  # x-Achsenbeschriftung
+        ax.set_ylabel(' ')  # y-Achsenbeschriftung
+        st.pyplot(fig)
+
+        fig, ax = plt.subplots()
+        ax = sns.barplot(data=result.plot_output_df, x=result.plot_output_df["score"], y=result.plot_output_df["name"])
+        ax.set_xlabel(' ')  # x-Achsenbeschriftung
+        ax.set_ylabel(' ')  # y-Achsenbeschriftung
+        fig = fig.tight_layout()
+        fig = ax.get_figure()
+        fig.savefig('src/webserver/report/assets/plot.png')
 
         with st.expander('Weitere Informationen zur Berechnung der Modelle...'):
             st.text('Lorem Ipsum')
@@ -134,7 +150,7 @@ if st.button('Berechne KI-Methode', key='calculate'):
 
         st.write('----')
 
-        for entry in reversed(st.session_state.output_data):
+        for entry in st.session_state.output_data:
 
             #TODO utils funktion
             entry = entry.replace("[", "").replace("]", "").replace("'", "")

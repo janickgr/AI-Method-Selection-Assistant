@@ -5,7 +5,7 @@ from streamlit_extras.switch_page_button import switch_page
 import forms.user_input
 import forms.consultant_input
 from utils import utils
-from models import models
+
 import time
 
 import pandas as pd

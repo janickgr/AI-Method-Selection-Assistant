@@ -1,0 +1,48 @@
+,Datum,Firmenname,Straße,Ort,Branche,Anzahl der Mitarbeiter,Telefon,E-Mail,Eingabeparameter,Ergebnisse der Abfrage,Feedback zur Abfrage
+0,20.06.2023,Beratungshaus Heilbronn IT,Bildungscampus 1,74072 Heilbronn,Beratung,25,1512123456,thomastest@beratungshausit.de,True,"[""['Unstrukturiert', 'Neural Networks and Deep Learning', 'Regression', 'Überwachtes Lernen']""
+ ""['Strukturiert', 'K-Nearest Neighbors ', 'Regression', 'Überwachtes Lernen']""
+ ""['Strukturiert', 'Linear Models', 'Regression', 'Überwachtes Lernen']""
+ ""['Strukturiert', 'Tree-Based Methods', 'Regression', 'Überwachtes Lernen']""
+ ""['Unstrukturiert', 'Neural Networks and Deep Learning', 'Regression', 'Halbüberwachtes Lernen']""]",Überhaupt nicht zufrieden
+1,20.06.2023,Beratungshaus Heilbronn IT,Bildungscampus 1,74072 Heilbronn,Beratung,25,1512123456,thomastest@beratungshausit.de,True,"[""['Unstrukturiert', 'Neural Networks and Deep Learning', 'Regression', 'Überwachtes Lernen']""
+ ""['Strukturiert', 'K-Nearest Neighbors ', 'Regression', 'Überwachtes Lernen']""
+ ""['Strukturiert', 'Linear Models', 'Regression', 'Überwachtes Lernen']""
+ ""['Strukturiert', 'Tree-Based Methods', 'Regression', 'Überwachtes Lernen']""
+ ""['Unstrukturiert', 'Neural Networks and Deep Learning', 'Regression', 'Halbüberwachtes Lernen']""]",Überhaupt nicht zufrieden
+2,20.06.2023,Beratungshaus Heilbronn IT,Bildungscampus 1,74072 Heilbronn,Beratung,25,1512123456,thomastest@beratungshausit.de,True,"[""['Strukturiert', 'Linear Models', 'Klassifikation', 'Halbüberwachtes Lernen']""
+ ""['Strukturiert', 'Support Vector Machines', 'Klassifikation', 'Halbüberwachtes Lernen']""
+ ""['Strukturiert', 'Neural Networks and Deep Learning', 'Klassifikation', 'Halbüberwachtes Lernen']""
+ ""['Strukturiert', 'Bayesian Methods', 'Klassifikation', 'Halbüberwachtes Lernen']""
+ ""['Strukturiert', 'Support Vector Machines', 'Regression', 'Halbüberwachtes Lernen']""]",Überhaupt nicht zufrieden
+3,20.06.2023,Beratungshaus Heilbronn IThgkjgfkuzgjh,jghfjhgfj,jhgfjhgf,Peepshow,250000,123,123@beratungshausit.de,True,"[""['Unstrukturiert', 'Q - Learning', 'Interaktion statt bereitgestellten Daten', 'Bestärkendes Lernen']""
+ ""['Unstrukturiert', 'SARSA', 'Interaktion statt bereitgestellten Daten', 'Bestärkendes Lernen']""
+ ""['Unstrukturiert', 'Neural Networks and Deep Learning', 'Regression', 'Halbüberwachtes Lernen']""
+ ""['Strukturiert', 'Q - Learning', 'Interaktion statt bereitgestellten Daten', 'Bestärkendes Lernen']""
+ ""['Strukturiert', 'SARSA', 'Interaktion statt bereitgestellten Daten', 'Bestärkendes Lernen']""]",Sehr zufrieden
+4,20.06.2023,asdfasdf,asdfasdf,asdf,sex,25,1512123456,thomastest@beratungshausit.de,True,"[""['Unstrukturiert', 'Neural Networks and Deep Learning', 'Regression', 'Überwachtes Lernen']""
+ ""['Strukturiert', 'K-Nearest Neighbors ', 'Regression', 'Überwachtes Lernen']""]",Überhaupt nicht zufrieden
+5,20.06.2023,asdfasdf,asdfasdf,asdf,sex,25,1512123456,thomastest@beratungshausit.de,True,"[""['Unstrukturiert', 'Neural Networks and Deep Learning', 'Regression', 'Überwachtes Lernen']""
+ ""['Strukturiert', 'K-Nearest Neighbors ', 'Regression', 'Überwachtes Lernen']""]",Überhaupt nicht zufrieden
+6,20.06.2023,asdfasdf,asdfasdf,asdf,sex,25,1512123456,thomastest@beratungshausit.de,True,"[""['Unstrukturiert', 'Neural Networks and Deep Learning', 'Regression', 'Überwachtes Lernen']""
+ ""['Strukturiert', 'K-Nearest Neighbors ', 'Regression', 'Überwachtes Lernen']""]",Überhaupt nicht zufrieden
+7,20.06.2023,asdfasdf,asdfasdf,asdf,sex,25,1512123456,thomastest@beratungshausit.de,True,"[""['Unstrukturiert', 'Neural Networks and Deep Learning', 'Regression', 'Überwachtes Lernen']""
+ ""['Strukturiert', 'K-Nearest Neighbors ', 'Regression', 'Überwachtes Lernen']""]",Überhaupt nicht zufrieden
+8,20.06.2023,asdfasdf,asdfasdf,asdf,sex,25,1512123456,thomastest@beratungshausit.de,True,"[""['Unstrukturiert', 'Neural Networks and Deep Learning', 'Regression', 'Überwachtes Lernen']""
+ ""['Strukturiert', 'K-Nearest Neighbors ', 'Regression', 'Überwachtes Lernen']""]",Überhaupt nicht zufrieden
+9,20.06.2023,Beratungshaus Heilbronn IT,Bildungscampus 1,74072 Heilbronn,Beratung,25,1512123456,thomastest@beratungshausit.de,True,"[""['Unstrukturiert', 'Neural Networks and Deep Learning', 'Regression', 'Überwachtes Lernen']""
+ ""['Strukturiert', 'K-Nearest Neighbors ', 'Regression', 'Überwachtes Lernen']""]",Überhaupt nicht zufrieden
+10,20.06.2023,Beratungshaus Heilbronn IT,Bildungscampus 1,74072 Heilbronn,Beratung,25,1512123456,thomastest@beratungshausit.de,True,"[""['Unstrukturiert', 'Neural Networks and Deep Learning', 'Regression', 'Überwachtes Lernen']""
+ ""['Strukturiert', 'K-Nearest Neighbors ', 'Regression', 'Überwachtes Lernen']""]",Überhaupt nicht zufrieden
+11,20.06.2023,Beratungshaus Heilbronn IT,Bildungscampus 1,74072 Heilbronn,Beratung,25,1512123456,thomastest@beratungshausit.de,True,"[""['Unstrukturiert', 'Neural Networks and Deep Learning', 'Regression', 'Überwachtes Lernen']""
+ ""['Strukturiert', 'K-Nearest Neighbors ', 'Regression', 'Überwachtes Lernen']""]",Überhaupt nicht zufrieden
+12,20.06.2023,Beratungshaus Heilbronn IT,Bildungscampus 1,74072 Heilbronn,Beratung,25,1512123456,thomastest@beratungshausit.de,True,"[""['Unstrukturiert', 'Neural Networks and Deep Learning', 'Regression', 'Überwachtes Lernen']""
+ ""['Strukturiert', 'K-Nearest Neighbors ', 'Regression', 'Überwachtes Lernen']""]",Überhaupt nicht zufrieden
+13,20.06.2023,Beratungshaus Heilbronn IT,Bildungscampus 1,74072 Heilbronn,Beratung,25,1512123456,thomastest@beratungshausit.de,True,"[""['Unstrukturiert', 'Neural Networks and Deep Learning', 'Regression', 'Überwachtes Lernen']""
+ ""['Strukturiert', 'K-Nearest Neighbors ', 'Regression', 'Überwachtes Lernen']""]",Überhaupt nicht zufrieden
+14,20.06.2023,Beratungshaus Heilbronn IT,Bildungscampus 1,74072 Heilbronn,Beratung,25,1512123456,thomastest@beratungshausit.de,True,"[""['Unstrukturiert', 'Neural Networks and Deep Learning', 'Regression', 'Überwachtes Lernen']""
+ ""['Strukturiert', 'K-Nearest Neighbors ', 'Regression', 'Überwachtes Lernen']""]",Überhaupt nicht zufrieden
+15,20.06.2023,Beratungshaus Heilbronn IT,Bildungscampus 1,74072 Heilbronn,Beratung,25,01512123456,thomastest@beratungshausit.de,True,"[""['Unstrukturiert', 'Neural Networks and Deep Learning', 'Regression', 'Überwachtes Lernen']""
+ ""['Strukturiert', 'Linear Models', 'Regression', 'Überwachtes Lernen']""
+ ""['Strukturiert', 'Tree-Based Methods', 'Regression', 'Überwachtes Lernen']""
+ ""['Unstrukturiert', 'Neural Networks and Deep Learning', 'Regression', 'Halbüberwachtes Lernen']""
+ ""['Strukturiert', 'K-Nearest Neighbors ', 'Regression', 'Halbüberwachtes Lernen']""]",Überhaupt nicht zufrieden

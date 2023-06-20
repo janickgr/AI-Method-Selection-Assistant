@@ -17,7 +17,8 @@ class Result:
 
     def create_result_df(self) -> None:
         result = self.lgb_model.get_predict_result_raw(input_data=self.input_data)
-        self.output_df = result[:self.count_methods_output]
+        result_reverted = result[::-1]
+        self.output_df = result_reverted[:self.count_methods_output]
         return 
     
     def create_result_plot(self) -> None:
