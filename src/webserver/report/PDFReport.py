@@ -16,8 +16,10 @@ class PDFReport:
         relative_path = 'src/webserver/report/assets/IWI-logo.png'
         iwi_logo = self.make_absolute_path(relative_path)
         img_dict = {'iwi_logo': iwi_logo}
+       
 
         context_dict = self.add_elements_to_dict(context_dict, img_dict)
+
 
         return context_dict
     
@@ -38,6 +40,7 @@ class PDFReport:
         # Add images to context
         context = self.add_img_to_html(context_dict)
         context = self.add_fig_to_html(context_dict)
+        #context = self.add_page_to_dict(context_dict)
 
         # Read template and write in
         template = template_env.get_template(html_template)
@@ -70,3 +73,11 @@ class PDFReport:
         dictionary.update(new_elements)
 
         return dictionary
+    
+    def add_page_to_dict(self, context_dict):
+        div_dict = {'div': 'Das ist ein Test'}
+        context_dict = self.add_elements_to_dict(context_dict, div_dict)
+
+
+        return context_dict
+        
