@@ -33,6 +33,9 @@ def display_session_state():
     if 'tco_clv_data' not in st.session_state:
         st.session_state['tco_clv_data'] = {'tco': None, 'clv': None}
 
+    if 'plot_output_data' not in st.session_state:
+        st.session_state['plot_output_data'] = ''
+
     if st.session_state['selected_profile'] != False:
         st.text('logged in as: {}'.format(
             st.session_state['selected_profile']))
@@ -46,10 +49,6 @@ def load_pictures():
 
 def display_title():
     st.title('AI-Method-Selection-Assistant')
-
-    st.text('Prototype implementation as part of the research study of the Master of Information Systems' +
-            '- Digital Transformation at Heilbronn University in 2023.')
-
 
 # TODO dringend überarbeiten ...
 def transform_dummy(data, features):

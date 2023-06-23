@@ -6,12 +6,10 @@ class Query:
     def __init__(self) -> None:
         self.file_path = './src/webserver/history/query_data.csv'
         if os.path.isfile(self.file_path):
-            print('isda')
             with open(self.file_path, 'rb') as file:
                 self.query_data = pd.read_csv(file, index_col=0)
         else:
-            print('isnichda')
-            self.query_data = pd.DataFrame(columns=['Datum', 'Firmenname', 'Straße', 'Ort', 'Branche', 'Anzahl der Mitarbeiter', 'Telefon', 'E-Mail', 'Eingabeparameter', 'Ergebnisse der Abfrage', 'Feedback zur Abfrage'])
+            self.query_data = pd.DataFrame(columns=['ID', 'Datum', 'Firmenname', 'Straße', 'Ort', 'Branche', 'Anzahl der Mitarbeiter', 'Telefon', 'E-Mail', 'Eingabeparameter', 'Ergebnisse der Abfrage', 'Feedback zur Abfrage', 'TCO', 'CLV', 'plot_data'])
             self.query_data.to_csv(self.file_path)
 
     def load_query_data(self):
