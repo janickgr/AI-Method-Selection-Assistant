@@ -98,7 +98,7 @@ def display_results():
         
     st.write('----')    
         
-    count_methods_output = st.number_input('Anzahl der ausgegebenen KI-Methoden', value=2, key='amount_methods_output')
+    count_methods_output = st.number_input('Anzahl der ausgegebenen KI-Methoden', value=10, key='amount_methods_output')
 
     if st.button('Berechne KI-Methode', key='calculate'):
         input_data = pd.DataFrame(st.session_state['feature_input_data'], index=['0'])
@@ -121,29 +121,32 @@ def display_results():
             
             col1, col2, c3 = st.columns(3, gap='small')
 
-            # Verwenden Sie Seaborn, um den Plot zu erstellen
 
-            # Plot im Streamlit anzeigen
-            fig, ax = plt.subplots(figsize=(5, 2))
-            ax = sns.barplot(data=result.plot_output_df, x=result.plot_output_df["score"], y=result.plot_output_df["name"])
-            ax.set_xlabel(' ')  # x-Achsenbeschriftung
-            ax.set_ylabel(' ')  # y-Achsenbeschriftung
+            fig = plt.figure(figsize=(10, 4))
+            sns.barplot(data=result.plot_output_df, x=result.plot_output_df["score"], y=result.plot_output_df["name"], edgecolor='black', linewidth=1, palette='cool', ci=None)
+            plt.xscale("log")
+            plt.xlabel("Score")
+            plt.ylabel("Methode")
+            plt.title("Vergleich der Modelle")
             st.pyplot(fig)
 
-            fig, ax = plt.subplots()
-            ax = sns.barplot(data=result.plot_output_df, x=result.plot_output_df["score"], y=result.plot_output_df["name"])
-            ax.set_xlabel(' ')  # x-Achsenbeschriftung
-            ax.set_ylabel(' ')  # y-Achsenbeschriftung
-            fig = fig.tight_layout()
-            fig = ax.get_figure()
+            fig = plt.figure(figsize=(10, 4))
+            sns.barplot(data=result.plot_output_df, x=result.plot_output_df["score"], y=result.plot_output_df["name"], edgecolor='black', linewidth=1, palette='cool', ci=None)
+            plt.xscale("log")
+            plt.xlabel("Score")
+            plt.ylabel("Methode")
+            plt.title("Vergleich der Modelle")
+            fig.tight_layout()
             fig.savefig('src/webserver/report/assets/plot.png')
 
             counter = 0
 
             st.write('----')
+            
+            methods_df = pd.read_csv('src/webserver/report/assets/Method_Descriptions.csv', sep=";")
 
-            for entry in st.session_state.output_data:
-
+            for entry in result.output_df:
+                    
                 #TODO utils funktion
                 entry = entry.replace("[", "").replace("]", "").replace("'", "")
 
@@ -157,13 +160,35 @@ def display_results():
                 col1.text('Lerntyp: ')
                 col1.text('Daten:')
 
-
                 col2.write(entry_list[2])
                 col2.write(entry_list[3])
                 col2.write(entry_list[0])
 
                 with st.expander('Weitere Informationen zum Verfahren: {}'.format(entry_list[1])): 
-                    st.write('Text Text Text')
+
+                    if not methods_df.loc[methods_df['Name'] == entry_list[1].lstrip()].empty:
+                        row_description_entry = methods_df.loc[methods_df['Name'] == entry_list[1].lstrip()]
+                        description = row_description_entry.iloc[0][2]
+                        advantages = row_description_entry.iloc[0][3]
+                        disadvantages = row_description_entry.iloc[0][4]
+                        task_types = row_description_entry.iloc[0][5]
+                    else:
+                        description = " **tbd:** Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
+                        advantages = "**tbd:** Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
+                        disadvantages = "**tbd:** Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
+                        task_types ="**tbd:** Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
+
+                    st.markdown("**Beschreibung:**")
+                    st.markdown(description)
+                    
+                    st.markdown("**Vorteile:**")
+                    st.markdown(advantages)
+
+                    st.markdown("**Nachteile:**")
+                    st.markdown(disadvantages)
+
+                    st.markdown("**Aufgabentyp:**")
+                    st.markdown(task_types)
 
                 st.write('----')
 

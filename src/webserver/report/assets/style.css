@@ -18,6 +18,16 @@ header {
   padding: 10px;
 }
 
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+td, th {
+  padding: 10px;
+  text-align: left;
+}
+
+
 header h3 {
   margin-top: 50px;
 }

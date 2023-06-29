@@ -21,8 +21,8 @@ def display_export():
         
     df_company_data = pd.DataFrame(
         st.session_state['company_info_data'], index=['0'])
-    tco = st.session_state['tco_clv_data']['tco']
-    clv = st.session_state['tco_clv_data']['clv']
+    tco = st.session_state['tco']
+    clv = st.session_state['clv']
 
     output_data = st.session_state['output_data']
     input_data = st.session_state['feature_input_data']

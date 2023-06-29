@@ -18,6 +18,9 @@ utils.display_session_state()
 
 def display_economic_calculation():
     
+    tco = 20499.0
+    clv = 7479501.0 
+
     st.header('Wirtschaftlichkeitsbetrachtung')
 
     col1, col4 = st.columns(2)
@@ -48,6 +51,9 @@ def display_economic_calculation():
 
             col2.subheader(str(tco) + ' €')
             col2.subheader(str(clv) + ' €')
+
+            st.session_state.clv = clv
+            st.session_state.tco = tco
 
     st.write('----')
 

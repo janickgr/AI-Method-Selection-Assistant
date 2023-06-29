@@ -30,8 +30,10 @@ def display_session_state():
     if 'output_data' not in st.session_state:
         st.session_state['output_data'] = {}
 
-    if 'tco_clv_data' not in st.session_state:
-        st.session_state['tco_clv_data'] = {'tco': None, 'clv': None}
+    if 'tco' not in st.session_state:
+        st.session_state['tco'] = 0
+    if 'clv' not in st.session_state:
+        st.session_state['clv'] = 0 
 
     if 'plot_output_data' not in st.session_state:
         st.session_state['plot_output_data'] = ''

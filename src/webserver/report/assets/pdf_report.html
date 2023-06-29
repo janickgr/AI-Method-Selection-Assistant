@@ -34,35 +34,21 @@
         ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore
         magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
         gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.<br> <br> </div>
-        <div class="page-break"></div>
-        <header>
-            <div class="logo">
-                <img src="{{iwi_logo}}">
-            </div>
-            <div class="placeholder"></div>
-            <h3> Ergebnisse des KI-Beratungsassistenten für {{name}} vom {{today}} </h3>
-        </header>
-
-        <div class="ergebnisse">
-            <b>Ergebnisse der Modellberechnung:</b><br> <br>
-            {{output_data}} <br><br>
+    <div class="page-break"></div>
+    <header>
+        <div class="logo">
+            <img src="{{iwi_logo}}">
         </div>
+        <div class="placeholder"></div>
+        <h3> Ergebnisse des KI-Beratungsassistenten für {{name}} vom {{today}} </h3>
+    </header>
 
-        <img src="{{plot_logo}}">
+    <div class="ergebnisse">
+        <b>Ergebnisse der Modellberechnung:</b><br> <br>
+        {{output_data}} <br><br>
+    </div>
 
-        <div class="page-break"></div>
-        <header>
-            <div class="logo">
-                <img src="{{iwi_logo}}">
-            </div>
-            <div class="placeholder"></div>
-            <h3> Ergebnisse des KI-Beratungsassistenten für {{name}} vom {{today}} </h3>
-        </header>
-        <div class="ergebnisse">
-            <b>Wirtschaftlichkeitsbetrachtung:</b><br> <br>
-            TCO (Total Cost of Ownership): {{tco}} (in EUR) <br>
-            CLV (Customer Lifetime Value): {{clv}} (in EUR) <br>
-        </div>
+    <img src="{{plot_logo}}">
 
     <div class="page-break"></div>
     <header>
@@ -73,13 +59,98 @@
         <h3> Ergebnisse des KI-Beratungsassistenten für {{name}} vom {{today}} </h3>
     </header>
     <div class="ergebnisse">
-        <h3> Beste Methode: {{methode1}}</h3> <br> 
-        Verfahren: {{methode1_verfahren}} <br>
-        Lerntyp: {{methode1_lerntyp}} <br>
-        Daten: {{methode1_datentyp}} <br> <br>
+
+        <h2><b>Wirtschaftlichkeitsbetrachtung:</b></h2><br> 
+         
+        <h3>Total Cost of Ownership (TCO): </h3> 
+        <br> Total Cost of Ownership (Gesamtbetriebskosten) ist eine finanzielle Kennzahl, die die umfassenden Kosten für den Besitz und Betrieb eines bestimmten Vermögenswerts, wie beispielsweise eines Produkts, einer Ausrüstung oder eines Systems, über seinen gesamten Lebenszyklus hinweg berechnet. Dabei werden nicht nur der anfängliche Kaufpreis berücksichtigt, sondern auch fortlaufende Ausgaben wie Wartung, Upgrades, Schulungen, Support und Entsorgungskosten. Die TCO bietet einen ganzheitlichen Blick auf die Gesamtkosten eines Vermögenswerts und ermöglicht es Unternehmen, fundiertere Entscheidungen zu treffen, indem sie die langfristigen Kosten berücksichtigen. 
+        
+        <h3> kalkulierte Gesamtbetriebskosten: &nbsp;&nbsp; {{tco}} € </h3> <br> 
+        
+        <br> <br>
+        
+        <br>
+        <h3>CLV (Customer Lifetime Value):</h3> 
+        <br> Der Customer Lifetime Value (Kundenwert über die Kundenlebensdauer) ist eine Kennzahl, die den finanziellen Wert eines Kunden über die gesamte Dauer seiner Kundenbeziehung mit einem Unternehmen darstellt. Der CLV berücksichtigt den Umsatz, den ein Kunde während seiner gesamten Lebensdauer generiert, sowie die Wahrscheinlichkeit von wiederkehrenden Geschäften. Es ist eine wichtige Metrik für Unternehmen, um den Wert und die Rentabilität ihrer Kundenbeziehungen zu bewerten und ihre Marketing- und Kundenservice-Strategien entsprechend anzupassen.
+
+        <h3> kalkulierter Kundenwert: &nbsp;&nbsp; {{clv}} € </h3>
+
+    </div>
+
+    <div class="page-break"></div>
+    <header>
+        <div class="logo">
+            <img src="{{iwi_logo}}">
+        </div>
+        <div class="placeholder"></div>
+        <h3> Ergebnisse des KI-Beratungsassistenten für {{name}} vom {{today}} </h3>
+    </header>
+    <div class="ergebnisse">
+        <h3> Beste Methode: {{method_0}}</h3> <br>
+        <table>
+            <tr>
+                <th>Verfahren</th>
+                <td>{{procedure_0}} </td>                
+            </tr>
+            <tr>
+                <th>Lerntyp</th>
+                <td>{{learntype_0}}</td>
+            </tr>
+            <tr>
+                <th>Daten</th>
+                <td>{{datatype_0}}</td>
+            </tr>
+        </table> <br>
 
         <b>Beschreibung:</b> <br>
-        {{beschreibung}}
+        {{description_0}} <br> <br>
+
+        <b>Vorteile:</b> <br>
+        {{advantages_0}} <br> <br>
+
+        <b>Nachteile:</b> <br>
+        {{disadvantages_0}} <br> <br>
+
+        <b>Aufgabentypen:</b> <br>
+        {{task_types_0}} <br> <br>
+
+    </div>
+    <div class="page-break"></div>
+    <header>
+        <div class="logo">
+            <img src="{{iwi_logo}}">
+        </div>
+        <div class="placeholder"></div>
+        <h3> Ergebnisse des KI-Beratungsassistenten für {{name}} vom {{today}} </h3>
+    </header>
+    <div class="ergebnisse">
+        <h3> Methode: {{method_1}}</h3> <br>
+        <table>
+            <tr>
+                <th>Verfahren</th>
+                <td>{{procedure_1}} </td>                
+            </tr>
+            <tr>
+                <th>Lerntyp</th>
+                <td>{{learntype_1}}</td>
+            </tr>
+            <tr>
+                <th>Daten</th>
+                <td>{{datatype_1}}</td>
+            </tr>
+        </table> <br>
+
+        <b>Beschreibung:</b> <br>
+        {{description_1}} <br> <br>
+
+        <b>Vorteile:</b> <br>
+        {{advantages_1}} <br> <br>
+
+        <b>Nachteile:</b> <br>
+        {{disadvantages_1}} <br> <br>
+
+        <b>Aufgabentypen:</b> <br>
+        {{task_types_1}} <br> <br>
 
     </div>
 
@@ -92,9 +163,315 @@
         <h3> Ergebnisse des KI-Beratungsassistenten für {{name}} vom {{today}} </h3>
     </header>
     <div class="ergebnisse">
-        {{methode2}}
-    </div>
+        <h3> Methode: {{method_2}}</h3> <br>
+        <table>
+            <tr>
+                <th>Verfahren</th>
+                <td>{{procedure_2}} </td>                
+            </tr>
+            <tr>
+                <th>Lerntyp</th>
+                <td>{{learntype_2}}</td>
+            </tr>
+            <tr>
+                <th>Daten</th>
+                <td>{{datatype_2}}</td>
+            </tr>
+        </table> <br>
 
+        <b>Beschreibung:</b> <br>
+        {{description_2}} <br> <br>
+
+        <b>Vorteile:</b> <br>
+        {{advantages_2}} <br> <br>
+
+        <b>Nachteile:</b> <br>
+        {{disadvantages_2}} <br> <br>
+
+        <b>Aufgabentypen:</b> <br>
+        {{task_types_2}} <br> <br>
+    </div>
+    <div class="page-break"></div>
+    <header>
+        <div class="logo">
+            <img src="{{iwi_logo}}">
+        </div>
+        <div class="placeholder"></div>
+        <h3> Ergebnisse des KI-Beratungsassistenten für {{name}} vom {{today}} </h3>
+    </header>
+    <div class="ergebnisse">
+        <h3> Methode: {{method_3}}</h3> <br>
+        <table>
+            <tr>
+                <th>Verfahren</th>
+                <td>{{procedure_3}} </td>                
+            </tr>
+            <tr>
+                <th>Lerntyp</th>
+                <td>{{learntype_3}}</td>
+            </tr>
+            <tr>
+                <th>Daten</th>
+                <td>{{datatype_3}}</td>
+            </tr>
+        </table> <br>
+        <b>Beschreibung:</b> <br>
+        {{description_3}} <br> <br>
+
+        <b>Vorteile:</b> <br>
+        {{advantages_3}} <br> <br>
+
+        <b>Nachteile:</b> <br>
+        {{disadvantages_3}} <br> <br>
+
+        <b>Aufgabentypen:</b> <br>
+        {{task_types_3}} <br> <br>
+    </div>
+    <div class="page-break"></div>
+    <header>
+        <div class="logo">
+            <img src="{{iwi_logo}}">
+        </div>
+        <div class="placeholder"></div>
+        <h3> Ergebnisse des KI-Beratungsassistenten für {{name}} vom {{today}} </h3>
+    </header>
+    <div class="ergebnisse">
+        <h3> Methode: {{method_4}}</h3> <br>
+        <table>
+            <tr>
+                <th>Verfahren</th>
+                <td>{{procedure_4}} </td>                
+            </tr>
+            <tr>
+                <th>Lerntyp</th>
+                <td>{{learntype_4}}</td>
+            </tr>
+            <tr>
+                <th>Daten</th>
+                <td>{{datatype_4}}</td>
+            </tr>
+        </table> <br>
+        <b>Beschreibung:</b> <br>
+        {{description_4}} <br> <br>
+
+        <b>Vorteile:</b> <br>
+        {{advantages_4}} <br> <br>
+
+        <b>Nachteile:</b> <br>
+        {{disadvantages_4}} <br> <br>
+
+        <b>Aufgabentypen:</b> <br>
+        {{task_types_4}} <br> <br>
+
+    </div>
+    <div class="page-break"></div>
+    <header>
+        <div class="logo">
+            <img src="{{iwi_logo}}">
+        </div>
+        <div class="placeholder"></div>
+        <h3> Ergebnisse des KI-Beratungsassistenten für {{name}} vom {{today}} </h3>
+    </header>
+    <div class="ergebnisse">
+        <h3> Methode: {{method_5}}</h3> <br>
+        <table>
+            <tr>
+                <th>Verfahren</th>
+                <td>{{procedure_5}} </td>                
+            </tr>
+            <tr>
+                <th>Lerntyp</th>
+                <td>{{learntype_5}}</td>
+            </tr>
+            <tr>
+                <th>Daten</th>
+                <td>{{datatype_5}}</td>
+            </tr>
+        </table> <br>
+
+        <b>Beschreibung:</b> <br>
+        {{description_5}} <br> <br>
+
+        <b>Vorteile:</b> <br>
+        {{advantages_5}} <br> <br>
+
+        <b>Nachteile:</b> <br>
+        {{disadvantages_5}} <br> <br>
+
+        <b>Aufgabentypen:</b> <br>
+        {{task_types_5}} <br> <br>
+    </div>
+    <div class="page-break"></div>
+    <header>
+        <div class="logo">
+            <img src="{{iwi_logo}}">
+        </div>
+        <div class="placeholder"></div>
+        <h3> Ergebnisse des KI-Beratungsassistenten für {{name}} vom {{today}} </h3>
+    </header>
+    <div class="ergebnisse">
+        <h3> Methode: {{method_6}}</h3> <br>
+        <table>
+            <tr>
+                <th>Verfahren</th>
+                <td>{{procedure_6}} </td>                
+            </tr>
+            <tr>
+                <th>Lerntyp</th>
+                <td>{{learntype_6}}</td>
+            </tr>
+            <tr>
+                <th>Daten</th>
+                <td>{{datatype_6}}</td>
+            </tr>
+        </table> <br>
+
+        <b>Beschreibung:</b> <br>
+        {{description_6}} <br> <br>
+
+        <b>Vorteile:</b> <br>
+        {{advantages_6}} <br> <br>
+
+        <b>Nachteile:</b> <br>
+        {{disadvantages_6}} <br> <br>
+
+        <b>Aufgabentypen:</b> <br>
+        {{task_types_6}} <br> <br>
+    </div>
+    <div class="page-break"></div>
+    <header>
+        <div class="logo">
+            <img src="{{iwi_logo}}">
+        </div>
+        <div class="placeholder"></div>
+        <h3> Ergebnisse des KI-Beratungsassistenten für {{name}} vom {{today}} </h3>
+    </header>
+    <div class="ergebnisse">
+        <h3> Methode: {{method_7}}</h3> <br>
+        <table>
+            <tr>
+                <th>Verfahren</th>
+                <td>{{procedure_7}} </td>                
+            </tr>
+            <tr>
+                <th>Lerntyp</th>
+                <td>{{learntype_7}}</td>
+            </tr>
+            <tr>
+                <th>Daten</th>
+                <td>{{datatype_7}}</td>
+            </tr>
+        </table> <br>
+
+        <b>Beschreibung:</b> <br>
+        {{description_7}} <br> <br>
+
+        <b>Vorteile:</b> <br>
+        {{advantages_7}} <br> <br>
+
+        <b>Nachteile:</b> <br>
+        {{disadvantages_7}} <br> <br>
+
+        <b>Aufgabentypen:</b> <br>
+        {{task_types_7}} <br> <br>
+    </div>
+    <div class="page-break"></div>
+    <header>
+        <div class="logo">
+            <img src="{{iwi_logo}}">
+        </div>
+        <div class="placeholder"></div>
+        <h3> Ergebnisse des KI-Beratungsassistenten für {{name}} vom {{today}} </h3>
+    </header>
+    <div class="ergebnisse">
+        <h3> Methode: {{method_8}}</h3> <br>
+        <table>
+            <tr>
+                <th>Verfahren</th>
+                <td>{{procedure_8}} </td>                
+            </tr>
+            <tr>
+                <th>Lerntyp</th>
+                <td>{{learntype_8}}</td>
+            </tr>
+            <tr>
+                <th>Daten</th>
+                <td>{{datatype_8}}</td>
+            </tr>
+        </table> <br>
+
+        <b>Beschreibung:</b> <br>
+        {{description_8}} <br> <br>
+
+        <b>Vorteile:</b> <br>
+        {{advantages_8}} <br> <br>
+
+        <b>Nachteile:</b> <br>
+        {{disadvantages_8}} <br> <br>
+
+        <b>Aufgabentypen:</b> <br>
+        {{task_types_8}} <br> <br>
+    </div>
+    
+    <div class="page-break"></div>
+    <header>
+        <div class="logo">
+            <img src="{{iwi_logo}}">
+        </div>
+        <div class="placeholder"></div>
+        <h3> Ergebnisse des KI-Beratungsassistenten für {{name}} vom {{today}} </h3>
+    </header>
+    <div class="ergebnisse">
+        <h3> Methode: {{method_9}}</h3> <br>
+        <table>
+            <tr>
+                <th>Verfahren</th>
+                <td>{{procedure_9}} </td>                
+            </tr>
+            <tr>
+                <th>Lerntyp</th>
+                <td>{{learntype_9}}</td>
+            </tr>
+            <tr>
+                <th>Daten</th>
+                <td>{{datatype_9}}</td>
+            </tr>
+        </table> <br>
+
+        <b>Beschreibung:</b> <br>
+        {{description_9}} <br> <br>
+
+        <b>Vorteile:</b> <br>
+        {{advantages_9}} <br> <br>
+
+        <b>Nachteile:</b> <br>
+        {{disadvantages_9}} <br> <br>
+
+        <b>Aufgabentypen:</b> <br>
+        {{task_types_9}} <br> <br>
+    </div>
+    <div class="page-break"></div>
+    <header>
+        <div class="logo">
+            <img src="{{iwi_logo}}">
+        </div>
+        <div class="name">{{name}}</div>
+        <div class="address">
+            {{street}} <br>
+            {{loc}}
+        </div>
+        <div class="contact">
+            {{phone}}<br>
+            {{mail}}
+        </div>
+    <br> <br> <br>  
+        <h1> Vielen Dank für die Nutzung des KI-Assistenten!</h1>
+    </header>
+     <div class="ergebnisse">
+        Bei weiteren Fragen schreiben Sie eine Mail an: ki-assisten@iwi-heilbronn.de  <br> <br>
+        Mit freundlichen Grüßen <br>
+        Helmut Beckmann  
+     </div>
     <footer>
         <!-- Inhalte des Footers (Kontaktinformationen, Links, etc.) -->
     </footer>
